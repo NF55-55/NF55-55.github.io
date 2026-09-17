@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Projects (academic + personal)</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 2rem;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    h1 { margin-bottom: 0.5rem; }
+    header p { color: var(--text-muted); font-size: 1.1rem; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #334155;
+    }
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background-color: #0f172a;
+    }
+    .card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .card-body h2 { font-size: 1.25rem; margin-top: 0; }
+    .card-body p { color: var(--text-muted); flex-grow: 1; font-size: 0.95rem; line-height: 1.5; }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #0f172a;
+      text-decoration: none;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 1rem;
+    }
+    .btn:hover { opacity: 0.9; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Projects portfolio</h1>
+    <p>Mechanical Design • FEA & CFD Simulations</p>
+  </header>
+
+  <div class="grid">
+    
+    <!-- Card 1 -->
+    <div class="card">
+      <img src="projects/topology-optimization/images/thumbnail.png" alt="Project 1 Render">
+      <div class="card-body">
+        <h2>Surface modeling for ...</h2>
+        <p>...</p>
+        <a href="projects/topology-optimization/" class="btn">View Slides & Case Study</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
