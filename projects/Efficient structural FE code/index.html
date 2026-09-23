@@ -164,12 +164,13 @@
   <!-- Header -->
     <div class="header">
       <h1>Efficient C++ structural FE code</h1>
-      <p>A lightweight, high-performance 2D 4-node quad linear (full integration) structural solver built from scratch.</p>
+      <p>A lightweight, high-performance 2D quad linear (full integration) structural solver built from scratch.</p>
       <div class="tech-tags">
         <span class="tag">C++23</span>
-        <span class="tag">Eigen library</span>
-        <span class="tag">Intel MKL</span>
-        <span class="tag">OpenMP</span>
+        <span class="tag">Eigen library (matrix/vector manipulation)</span>
+        <span class="tag">Intel oneMKL (linear solver)</span>
+        <span class="tag">OpenMP (multi-threading)</span>
+        <span class="tag">MATLAB</span>
       </div>
     </div>
 
@@ -177,27 +178,43 @@
     <div class="section">
       <h2>1. Project Goals</h2>
       <ul>
-        <li><strong>Transition from Prototype to Production Code:</strong> Evolve an initial MATLAB FE code (static/dynamic linear and non-linear) into a compiled, high-performance C++ implementation.</li>
-        <li><strong>Eliminate Overhead:</strong> Design a lightweight solver core optimized for raw speed on standard 2D quad elements (full $2\times2$ integration) without commercial software bloat.</li>
+        <li><strong>Deriving the weak formulation of solid mechanics PDEs</strong> (momentum, strain-displacement and constitutive eq.) using the Galerkin method, for geometric linear and non-linear (Total Lagrangian formulation) problems, both static and implicit-dynamic (Newmark-beta time integration).</li>
+        Starting from a 2D domain discretized by 4-node full integration quadrilateral isoparametric elements develop:
+        <li><strong>Mesh import + set BC + set IC.</strong></li>
+        <li><strong>Global stiffness (and mass) matrix assembly, being as memory efficient as possible.</strong></li>
+        <li><strong>Newton-Raphson loop for non-linear problems, after deriving the effective stiffness matrix.</strong></li>
+        <li><strong>Integrate state of the art linear solver.</strong></li>
+        <li><strong>Export the results in .vtk format to visualize and post-process the results in ParaView.</strong></li>
       </ul>
     </div>
 
-    <!-- 2. METHODOLOGY (HOW) -->
+    <!-- 2. (HOW) -->
     <div class="section">
-      <h2>2. Methodology & Implementation</h2>
+      <h2>2. Implementation</h2>
       <ul>
-        <li><strong>Element Formulation:</strong> Coded a 2D 4-node isoparametric quadrilateral element using full $2\times2$ Gauss quadrature integration.</li>
+        <strong>Starting from MATLAB (using Procedure Oriented Programming):</strong>
+        <li>Automatic mesh and BC-nodes import from Abaqus .inp file and SALOME .dat file.</li>
+        <li>Checking for highly distorted elements via Jacobian ratio.</li>
+        <li>Setting material properties and plane stress/strain assumption.</li>
+        <li>Setting Boundary Conditions and Initial Conditions (possibility to start dynamics from a static solution).</li>
+        <li>Using a sparse global stiffness (and mass) matrix, defined through a list of triplets [i,j,val].</li>
+        <li>Time integration using Newmark-beta method (dynamics).</li>
+        <li>In case of geometric non-linearity (potentially material and BC non-linearity as well), computing the internal force vector and effective tangent stiffness matrix, solving for the next best displacement vector and iterating until the normalized residual of the equilibrium equations is lower than threshold.</li>
+        <li>Write an ASCII .vtk file containing the results (stress tensor and displacement field).</li>
+        <strong>Passing to C++ (using OOP and POP) to achieve higher efficiency</strong>. The implementation is similar to what was done in MATLAB but with efficiency in mind:
+        <li>Using Eigen template library to make matrix manipulation and operations highly efficient, thanks to lazy evaluation (compile-time simplifications) and SIMD optimization.</li>
+        <li>Passing non-trivial method arguments by address or reference.</li>
+        <li>Using compiler optimizations (-O3).</li>
+        <li>Using constexpr (objects known at compile-time/priori) whenever possible.</li>
+        <li>Allowing the user to choose between single and double precision from "settings" file.</li>
+        <li>Integrating via Eigen wrapper the state of the art linear direct solver Intel PARDISO.</li>
+        <li>Allowing the user to choose between binary (more efficient) and ASCII .vtk file to store the results.</li>
+        <li></li>
       </ul>
-      
-      <!-- Optional: architecture diagram -->
-      <div class="media-box">
-        <p style="color: var(--text-muted); margin: 0;">[ Optional: Code Snippet / Architecture Diagram ]</p>
-      </div>
-    </div>
 
     <!-- 3. RESULTS & BENCHMARK -->
     <div class="section">
-      <h2>3. Results & Abaqus Benchmark</h2>
+      <h2>3. Results</h2>
       <p>A static linear analysis benchmark was conducted under identical boundary conditions, mesh density, and linear direct solver parameters across MATLAB, Abaqus Standard, and the custom C++ solver.</p>
 
       <div class="table-container">
