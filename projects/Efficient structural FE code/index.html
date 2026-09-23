@@ -40,53 +40,119 @@
       color: var(--text-muted);
       line-height: 1.6;
     }
-    .pdf-container {
-      width: 100%;
-      height: 600px;
-      background: var(--card-bg);
-      border-radius: 8px;
-      border: 1px solid #334155;
-      overflow: hidden;
-      margin-bottom: 1.5rem;
+    
+    .tech-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
     }
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    .media-container {
-      background: var(--card-bg);
-      border-radius: 8px;
-      border: 1px solid #334155;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-    .media-container h3 {
-      margin-top: 0;
-      text-align: left;
-      font-size: 1.2rem;
-      color: var(--text);
-    }
-    .media-container img {
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      border-radius: 6px;
-      margin-top: 0.5rem;
-      display: block;
+    .tag {
+      background: #0284c720;
+      color: var(--accent);
+      border: 1px solid #0284c740;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
     }
     
+    /* Section styling matching CV structure */
+    .section {
+      background: var(--card-bg);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+    }
+    .section h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+    
+    /* Lists and Content */
+    ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--text);
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Benchmark Table */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background-color: #0f172a80;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .highlight {
+      color: var(--accent-green);
+      font-weight: bold;
+    }
+
+    /* Media/Report Embeds */
+    .media-box {
+      margin-top: 1rem;
+      background: #0f172a;
+      border: 1px dashed var(--border);
+      padding: 1rem;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    /* Buttons & Links */
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
     .btn {
       background: var(--accent);
       color: #0f172a;
       text-decoration: none;
-      padding: 0.75rem 1.25rem;
+      padding: 0.6rem 1.2rem;
       border-radius: 4px;
       font-weight: bold;
+      display: inline-block;
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
     }
     .btn:hover { opacity: 0.9; }
+    
+    footer {
+      text-align: center;
+      font-size: 0.85em;
+      color: var(--text-muted);
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
   </style>
 </head>
 <body>
@@ -95,18 +161,87 @@
     <!-- Back to gallery link -->
     <a href="../../index.html" class="nav-back">← Back to All Projects</a>
 
-    <!-- Project Title & Overview -->
+  <!-- Header -->
     <div class="header">
-      <h1>Efficient structural FE code</h1>
-      <p>
-        <strong>Tools:</strong> C++, Eigen library, Intel MKL, OpenMP, MATLAB.<br>
-      </p>
+      <h1>Efficient C++ structural FE code</h1>
+      <p>A lightweight, high-performance 2D 4-node quad linear (full integration) structural solver built from scratch.</p>
+      <div class="tech-tags">
+        <span class="tag">C++23</span>
+        <span class="tag">Eigen library</span>
+        <span class="tag">Intel MKL</span>
+        <span class="tag">OpenMP</span>
+      </div>
     </div>
 
-    
+    <!-- 1. GOALS -->
+    <div class="section">
+      <h2>1. Project Goals</h2>
+      <ul>
+        <li><strong>Transition from Prototype to Production Code:</strong> Evolve an initial MATLAB FE code (static/dynamic linear and non-linear) into a compiled, high-performance C++ implementation.</li>
+        <li><strong>Eliminate Overhead:</strong> Design a lightweight solver core optimized for raw speed on standard 2D quad elements (full $2\times2$ integration) without commercial software bloat.</li>
+      </ul>
+    </div>
+
+    <!-- 2. METHODOLOGY (HOW) -->
+    <div class="section">
+      <h2>2. Methodology & Implementation</h2>
+      <ul>
+        <li><strong>Element Formulation:</strong> Coded a 2D 4-node isoparametric quadrilateral element using full $2\times2$ Gauss quadrature integration.</li>
+      </ul>
+      
+      <!-- Optional: architecture diagram -->
+      <div class="media-box">
+        <p style="color: var(--text-muted); margin: 0;">[ Optional: Code Snippet / Architecture Diagram ]</p>
+      </div>
+    </div>
+
+    <!-- 3. RESULTS & BENCHMARK -->
+    <div class="section">
+      <h2>3. Results & Abaqus Benchmark</h2>
+      <p>A static linear analysis benchmark was conducted under identical boundary conditions, mesh density, and linear direct solver parameters across MATLAB, Abaqus Standard, and the custom C++ solver.</p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>MATLAB Prototype</th>
+              <th>Abaqus Standard</th>
+              <th>Custom C++ Engine</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Element Type</strong></td>
+              <td>2D Quad (Full Int.)</td>
+              <td>CPS4 (Full Int.)</td>
+              <td>2D Quad (Full Int.)</td>
+            </tr>
+            <tr>
+              <td><strong>Safety Overhead</strong></td>
+              <td>Low</td>
+              <td>High (Distortion checks)</td>
+              <td>Minimal (User-defined)</td>
+            </tr>
+            <tr>
+              <td><strong>Solve Phase Time</strong></td>
+              <td>~12.40 s</td>
+              <td>1.00 s (Baseline)</td>
+              <td class="highlight">0.19 s (5.27x Speedup)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="btn-group">
+        <a href="https://github.com/NF55-55/repo" class="btn" target="_blank">View GitHub Repository</a>
+      </div>
+    </div>
+
+  </div>
 
 </body>
-<footer style="text-align: center; font-size: 0.85em; color: #666; margin-top: 2rem;">
-  <p>© 2026 Nicola Filippi. Technical reports, presentations, images and animations are protected under CC BY-NC-ND 4.0.</p>
+<footer>
+    <p>© 2026 Nicola Filippi. Technical reports, presentations, images, and code are protected under CC BY-NC-ND 4.0.</p>
 </footer>
 </html>
