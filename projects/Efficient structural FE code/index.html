@@ -203,6 +203,8 @@
         <li>Write an ASCII .vtk file containing the results (stress tensor and displacement field).</li>
         <strong>Passing to C++ (using OOP and POP) to achieve higher efficiency</strong>. The implementation is similar to what was done in MATLAB but with efficiency in mind:
         <li>Using Eigen template library to make matrix manipulation and operations highly efficient, thanks to lazy evaluation (compile-time simplifications) and SIMD optimization.</li>
+        <li>Using .reserve() to avoid dynamic memory reallocations of std::vectors.</li>
+        <li>Using stack operations with std::vectors and std::strings.</li>
         <li>Passing non-trivial method arguments by address or reference.</li>
         <li>Using compiler optimizations (-O3).</li>
         <li>Using constexpr (objects known at compile-time/priori) whenever possible.</li>
