@@ -202,7 +202,7 @@
         <li>Time integration using Newmark-beta method (dynamics).</li>
         <li>In case of geometric non-linearity (potentially material and BC non-linearity as well), computing the internal force vector and effective tangent stiffness matrix, solving for the next best displacement vector and iterating until the normalized residual of the equilibrium equations is lower than threshold.</li>
         <li>Write an ASCII .vtk file containing the results (stress tensor and displacement field).</li>
-        <strong>Passing to C++ (using OOP and POP) to achieve higher efficiency</strong>. The implementation is similar to what was done in MATLAB but with efficiency in mind:
+        <strong>Passing to C++ (OOP and POP) to achieve higher efficiency</strong>. The implementation is similar to what was done in MATLAB but with efficiency in mind:
         <li>Using Eigen template library to make matrix manipulation and operations highly efficient, thanks to lazy evaluation (compile-time simplifications) and SIMD optimization.</li>
         <li>Using .reserve() to avoid dynamic memory reallocations of std::vectors.</li>
         <li>Using stack operations with std::vectors and std::strings.</li>
