@@ -276,7 +276,7 @@
         </li>
       </ul>
       
-      <p>A static linear analysis benchmark was conducted across Abaqus Standard, custom C++ solver and custom MATLAB solver.</p>
+      <p>A static linear analysis benchmark was conducted across Abaqus/Standard (commercial code), custom C++ solver and custom MATLAB solver.</p>
       <p><strong>Details of the model:</strong></p>
       <ul>
         <li><strong>Geometry:</strong> a quarter of a 200x100x2 mm plate with a hole of diamter 20 mm in the centre.</li>
@@ -315,7 +315,29 @@
         </table>
       </div>
       <p>* considering only the actual solving phase, no input file analysis and other initial checks, which would bring the total elapsed time to 54 s (the C++ solver would be x10.2 faster).</p>
+
+      <div class="results-visuals">
+        <h3>Figures for C++ vs Abaqus results comparison</h3>
       
+        <!-- 1. Side-by-side stress field comparison -->
+        <figure class="visual-comparison">
+          <div class="image-grid">
+            <img src="./images/VMsFieldAbaqus.png" alt="Abaqus Von Mises Stress Field Contour">
+            <img src="./images/VMsFieldCpp.png" alt="Custom C++ Solver Von Mises Stress Field Contour">
+          </div>
+          <figcaption>
+            <strong>Figure 1:</strong> Von Mises stress field comparison between Abaqus/Standard (left) and the Custom C++ code (right).
+          </figcaption>
+        </figure>
+      
+        <!-- quantified results -->
+        <figure class="visual-comparison">
+          <img src="./images/stressComparisonWithFigure.png" alt="Overlapped VM stress" class="full-width-img">
+          <figcaption>
+            <strong>Figure 2:</strong> overlapped Von Mises stress curve along the vertical edge at the centre of the plate.
+          </figcaption>
+        </figure>
+      </div>
     </div>
 
     <div class="btn-group">
