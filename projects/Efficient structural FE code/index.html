@@ -214,6 +214,7 @@
         <li>Allowing the user to choose between single and double precision from "settings" file.</li>
         <li>Integrating via Eigen wrapper the state of the art linear direct solver Intel PARDISO.</li>
         <li>Allowing the user to choose between binary (more efficient) and ASCII .vtk file to store the results.</li>
+        <li>Allowing the user to choose between single-thread and multi-thread execution (OpenMP).</li>
       </ul>
 
     <!-- 3. RESULTS & BENCHMARK -->
@@ -233,7 +234,7 @@
         <li>
           <strong>Custom C++ Engine:</strong> Currently restricted to 2D quad elements (full integration).
           <ul>
-            <li>Linear static solver</li>
+            <li>Linear static solver (single and  multi-thread execution)</li>
             <li>Implicit dynamic solvers (in development)</li>
           </ul>
         </li>
