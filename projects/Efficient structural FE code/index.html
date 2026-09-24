@@ -317,7 +317,7 @@
       <p>* considering only the actual solving phase, no input file analysis and other initial checks, which would bring the total elapsed time to 54 s (the C++ solver would be x10.2 faster).</p>
 
       <div class="results-visuals">
-        <h3>Figures for C++ vs Abaqus results comparison</h3>
+        <h3>Figures of C++ vs Abaqus results comparison</h3>
       
         <!-- 1. Side-by-side stress field comparison -->
         <figure class="visual-comparison">
@@ -334,9 +334,21 @@
         <figure class="visual-comparison">
           <img src="./images/stressComparisonWithFigure.png" alt="Overlapped VM stress" class="full-width-img">
           <figcaption>
-            <strong>Figure 2:</strong> overlapped Von Mises stress curve along the vertical edge at the centre of the plate.
+            <strong>Figure 2:</strong> overlapped Von Mises stress curves along the vertical edge at the centre of the plate.
           </figcaption>
         </figure>
+
+        <!-- 1. Side-by-side stress field comparison -->
+        <figure class="visual-comparison">
+          <div class="image-grid">
+            <img src="./images/UfieldAbaqus.png" alt="Abaqus displacement Field Contour">
+            <img src="./images/UfieldCpp.png" alt="Custom C++ Solver displacement Field Contour">
+          </div>
+          <figcaption>
+            <strong>Figure 3:</strong> Displacement (magnitude) field comparison between Abaqus/Standard (left) and the Custom C++ code (right).
+          </figcaption>
+        </figure>
+        
       </div>
     </div>
 
