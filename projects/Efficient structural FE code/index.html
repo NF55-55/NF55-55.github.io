@@ -219,40 +219,45 @@
     <!-- 3. RESULTS & BENCHMARK -->
     <div class="section">
       <h2>3. Results</h2>
-      <p>A static linear analysis benchmark was conducted under identical boundary conditions, mesh density, and linear direct solver parameters across MATLAB, Abaqus Standard, and the custom C++ solver.</p>
+      <p>A static linear analysis benchmark was conducted across Abaqus Standard, custom C++ solver and custom MATLAB solver.</p>
+      <p><strong>Details of the model:</strong></p>
+      <ul>
+        <li><strong>Geometry:</strong> a quarter of a 200x100x2 mm plate with a hole of diamter 20 mm in the centre.</li>
+        <li><strong>Material Properties:</strong> isotropic linear elastic ($E = 200\text{ GPa}$, $\nu = 0.3$)</li>
+        <li><strong>Solver Options:</strong> static, no geometric non-linearity, double precision, direct linear solver.</li>
+        <li><strong>Solver Outputs:</strong> nodal displacements and stress tensor withing the solid domain.</li>
+        <li><strong>Mesh:</strong> structured quad mesh of linear (4-node) quadrilateral full integration (4 integration points) plane stress elements: 210316 elements and 211279 nodes.</li>
+        <li><strong>BC and load:</strong> fixed the nodal displacements (perpendicular to the edge) at the symmetry edges, 10 kN applied to the free vertical edge.</li>
+      </ul>
 
+      <p><strong>Below are summarised the benchmark results:</strong></p>
       <div class="table-container">
         <table>
           <thead>
             <tr>
               <th>Metric</th>
-              <th>MATLAB Prototype</th>
-              <th>Abaqus Standard</th>
-              <th>Custom C++ Engine</th>
+              <th>custom MATLAB code</th>
+              <th>Abaqus/Standard</th>
+              <th>Custom C++ code</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Element Type</strong></td>
-              <td>2D Quad (Full Int.)</td>
-              <td>CPS4 (Full Int.)</td>
-              <td>2D Quad (Full Int.)</td>
+              <td><strong>Level of runtime checking</strong></td>
+              <td>Absent</td>
+              <td>High (Distortion and convergence checks)</td>
+              <td>Absent</td>
             </tr>
             <tr>
-              <td><strong>Safety Overhead</strong></td>
-              <td>Low</td>
-              <td>High (Distortion checks)</td>
-              <td>Minimal (User-defined)</td>
-            </tr>
-            <tr>
-              <td><strong>Solve Phase Time</strong></td>
-              <td>~12.40 s</td>
-              <td>1.00 s (Baseline)</td>
-              <td class="highlight">0.19 s (5.27x Speedup)</td>
+              <td><strong>Solving time</strong></td>
+              <td>41.1 s (x1.47 slower)</td>
+              <td>*28 s (Baseline)</td>
+              <td class="highlight">5.31 s (5.27x faster)</td>
             </tr>
           </tbody>
         </table>
       </div>
+      <p>* considering only the actual solving phase, no input file analysis and other initial checks, which would bring the total elapsed time to 54 s (the C++ solver would be x10.2 faster).</p>
 
       <div class="btn-group">
         <a href="https://github.com/NF55-55/repo" class="btn" target="_blank">View GitHub Repository</a>
