@@ -1,1 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Case Study & Presentation</title>
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 2rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .nav-back {
+      display: inline-block;
+      color: var(--accent);
+      text-decoration: none;
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+    }
+    .header {
+      margin-bottom: 2rem;
+    }
+    .header h1 {
+      margin-bottom: 0.5rem;
+    }
+    .header p {
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    
+    .tech-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.75rem;
+    }
+    .tag {
+      background: #0284c720;
+      color: var(--accent);
+      border: 1px solid #0284c740;
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    
+    /* Section styling matching CV structure */
+    .section {
+      background: var(--card-bg);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+    }
+    .section h2 {
+      margin-top: 0;
+      font-size: 1.3rem;
+      color: var(--accent);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+    }
+    
+    /* Lists and Content */
+    ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--text);
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    li:last-child {
+      margin-bottom: 0;
+    }
 
+    /* Benchmark Table */
+    .table-container {
+      overflow-x: auto;
+      margin-top: 1rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background-color: #0f172a80;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+    .highlight {
+      color: var(--accent-green);
+      font-weight: bold;
+    }
+
+    /* Media/Report Embeds */
+    .media-box {
+      margin-top: 1rem;
+      background: #0f172a;
+      border: 1px dashed var(--border);
+      padding: 1rem;
+      border-radius: 6px;
+      text-align: center;
+    }
+
+    /* Buttons & Links */
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .btn {
+      background: var(--accent);
+      color: #0f172a;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      font-weight: bold;
+      display: inline-block;
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn:hover { opacity: 0.9; }
+
+    .results-visuals {
+      margin-top: 2rem;
+    }
+    
+    .visual-comparison {
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+    
+    /* Places the stress field images side-by-side */
+    .image-grid {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+    
+    .image-grid img {
+      width: 50%; /* Adjust or set to 100% on mobile via media queries */
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
+    /* Full-width style for the curve plot */
+    .full-width-img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    
+    figcaption {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.85em;
+      color: var(--text-muted);
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Back to gallery link -->
+    <a href="../../index.html" class="nav-back">← Back to All Projects</a>
+
+  <!-- Header -->
+    <div class="header">
+      <h1>Design of a lightweight laptop positioner</h1>
+      <p>Topology-optimized laptop positioner for improved ergonomics.</p>
+      <div class="tech-tags">
+        <span class="tag">Fusion (CAD)</span>
+        <span class="tag">Abaqus (FEA)</span>
+        <span class="tag">HyperMesh + OptiStruct + HyperView (Topology Optimization)</span>
+        <span class="tag">Python (calculations and post-processing)</span>
+        <span class="tag">MATLAB (mechanism design)</span>
+        <span class="tag"></span>
+      </div>
+    </div>
+
+    <!-- 1. GOALS -->
+    <div class="section">
+      <h2>1. Project Goals</h2>
+      <ul>
+        <li><strong>...</strong></li>
+      </ul>
+    </div>
+
+    <!-- 2. (HOW) -->
+    <div class="section">
+      <h2>2. Implementation</h2>
+      <ul>
+        <li>...</li>
+      </ul>
+    </div>
+
+    <!-- 3. RESULTS & BENCHMARK -->
+    <div class="section">
+      <h2>3. Results</h2>
+      
+      <p><strong>...</strong></p>
+      <ul>
+        <li><strong>...</strong></li>
+      </ul>
+      
+      <div class="results-visuals">
+        <h3>...</h3>
+        <!-- 1. Side-by-side stress field comparison -->
+        <figure class="visual-comparison">
+          <div class="image-grid">
+            <img src="./images/.png" alt="legend">
+            <img src="./images/.png" alt="legend">
+          </div>
+          <figcaption>
+            <strong>Figure 1:</strong> ...
+          </figcaption>
+        </figure>
+    
+      </div>
+    </div>
+
+    <div class="btn-group">
+        <a href="https://github.com/NF55-55/structural-FE-codes" class="btn" target="_blank">View GitHub Repository</a>
+    </div>
+  </div>
+
+</body>
+<footer>
+    <p>© 2026 Nicola Filippi. Technical reports, presentations, images, and code are protected under CC BY-NC-ND 4.0.</p>
+</footer>
+</html>
