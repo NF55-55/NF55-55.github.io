@@ -233,7 +233,7 @@
       </div>
       <p>Goals to achieve are:</p>
       <ul>
-        <li><strong>Design the mechanism</strong> responsible for adjusting the laptop’s position.</li>
+        <li><strong>Design a mechanism</strong> responsible for adjusting the laptop’s position to improve ergonomics.</li>
         <li><strong>Measure/estimate loads</strong> and apply appropriate factor of safety.</li>
         <li><strong>Perform topology optimization</strong> of the 3D printed parts for a material-efficient design.</li>
         <li><strong>Conduct approximate fatigue calculations</strong> to estimate assembly lifespan.</li>
@@ -244,6 +244,8 @@
     <div class="section">
       <h2>2. Design</h2>
       <ul>
+        <li>Based on the two known poses of the laptop (on the fixed platform & close to the user) and its orientation between these two (parallel to the desk surface), an articulated parallelogram mechanism was selected to solve this problem.</li>
+        <li>Link lengths were iteratively optimized in MATLAB by solving direct kinematics for different configurations, balancing platform dimensions, ergonomic target positions, and desk footprint constraints.</li>
         <li>...</li>
       </ul>
     </div>
