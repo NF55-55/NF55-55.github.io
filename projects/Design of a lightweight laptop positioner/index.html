@@ -11,6 +11,7 @@
       --text: #f8fafc;
       --text-muted: #94a3b8;
       --accent: #38bdf8;
+      --border: #334155;
     }
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -175,12 +176,28 @@
       border: 1px solid #ddd;
       border-radius: 4px;
     }
-    
     figcaption {
       margin-top: 0.5rem;
       font-size: 0.9rem;
       color: #555;
     }
+    /* Inline Section Figure Styling */
+    .section-image {
+      margin: 1.25rem 0;
+      text-align: center;
+    }
+    
+    .section-image img {
+      border-color: var(--border);
+      border-radius: 6px;
+    }
+    
+    .section-image figcaption {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted); /* Styled to match dark mode palette */
+    }
+    
     footer {
       text-align: center;
       font-size: 0.85em;
@@ -255,7 +272,7 @@
       
       <ul>
         <li>Weight distribution of the laptop was measured, while the one of the mobile platform as well as the accidental lateral force were estimated.</li>
-        <li>The wooden mobile platform was first modelled in Fusion as a simple rectangular plank with the required thickness. In HyperMesh </li>
+        <li>The wooden mobile platform was first modelled in Fusion as a simple rectangular plank with the required thickness. Moreover, the extension arms and the support links were designed in a simple way.</li>
       </ul>
     </div>
 
