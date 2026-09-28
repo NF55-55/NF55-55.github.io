@@ -263,6 +263,7 @@
       <ul>
         <li>Based on the two known poses of the laptop (on the fixed platform & close to the user) and its orientation between these two (parallel to the desk surface), an articulated parallelogram mechanism was selected to solve this problem.</li>
         <li>Link lengths were iteratively optimized in MATLAB by solving kinematics for different configurations, considering platform dimensions, ergonomic target pose, and desk footprint constraints.</li>
+        <li>Weight distribution of the laptop was measured, while the one of the mobile platform as well as the accidental lateral force were estimated.</li>
       </ul>
 
       <figure class="section-image">
@@ -271,8 +272,13 @@
       </figure>
       
       <ul>
-        <li>Weight distribution of the laptop was measured, while the one of the mobile platform as well as the accidental lateral force were estimated.</li>
-        <li>The wooden mobile platform was first modelled in Fusion as a simple rectangular plank with the required thickness. Moreover, the extension arms and the support links were designed in a simple way.</li>
+        <li>Initial simple topologies for the extension arms, support links, and mobile platform were modeled in Fusion 360.</li>
+        <li>The geometry was imported into HyperMesh to define design spaces and apply specific manufacturing constraints for topology optimization:
+          <ul>
+            <li><strong>Extrusion constraint:</strong> Applied to the mobile plank to ensure simple manufacturability (cutting out material).</li>
+            <li><strong>Overhang angle constraint:</strong> Applied to the extension arms and support links to optimize for 3D printing.</li>
+          </ul>
+        </li>
       </ul>
     </div>
 
