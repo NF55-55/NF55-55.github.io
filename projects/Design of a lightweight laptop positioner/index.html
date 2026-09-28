@@ -263,7 +263,8 @@
       <ul>
         <li>Based on the two known poses of the laptop (on the fixed platform & close to the user) and its orientation between these two (parallel to the desk surface), an articulated parallelogram mechanism was selected to solve this problem.</li>
         <li>Link lengths were iteratively optimized in MATLAB by solving kinematics for different configurations, considering platform dimensions, ergonomic target pose, and desk footprint constraints.</li>
-        <li>Weight distribution of the laptop was measured, while the one of the mobile platform as well as the accidental lateral force were estimated.</li>
+        <li>Weight distribution of the laptop was measured, while the one of the mobile platform as well as the accidental lateral force were estimated. A FoS of 2 was used, motivated by possible dynamic accidental loads.</li>
+        <li>The reaction forces at the mechanical stop and lower joints were computed for later TO and integrity validation.</li>
       </ul>
 
       <figure class="section-image">
@@ -272,14 +273,30 @@
       </figure>
       
       <ul>
-        <li>Initial simple topologies for the extension arms, support links, and mobile platform were modeled in Fusion 360.</li>
-        <li>The geometry was imported into HyperMesh to define design spaces and apply specific manufacturing constraints for topology optimization:
+        <li>Initial simple topologies for the extension arms, support links, and mobile platform were modelled in Fusion 360 considering the expected loads applied and space constraints.</li>
+        <li>Each geometry, separately, was imported into HyperMesh to define suitable constraints, design spaces and apply specific manufacturing constraints for topology optimization:
           <ul>
             <li>Extrusion constraint: Applied to the mobile plank to ensure simple manufacturability (cutting out material).</li>
             <li>Overhang angle constraint: Applied to the extension arms and support links to optimize for 3D printing.</li>
           </ul>
         </li>
+        <li>OptiStruct was utilised to solve the topology optimization problem using density-based algorithm. While HyperView was necessary to extract a smooth topology from the raw result.</li>
       </ul>
+
+      <figure class="visual-comparison">
+        <div class="image-grid">
+          <img src="./images/initialSupportLink.png" alt="initialSupportLink">
+          <img src="./images/TOsupportLink.png" alt="TOsupportLink">
+        </div>
+        <figcaption>
+          <strong>Figure 3:</strong> start design of the support link (left) and final topology-optimized design (right).
+        </figcaption>
+      </figure>
+
+      <ul>
+        <li></li>
+      </ul>
+      
     </div>
 
     <!-- 3. RESULTS & BENCHMARK -->
