@@ -280,7 +280,7 @@
             <li>Overhang angle constraint: Applied to the extension arms and support links to optimize for 3D printing.</li>
           </ul>
         </li>
-        <li>OptiStruct was utilised to solve the topology optimization problem using density-based algorithm. While HyperView was necessary to extract a smooth topology from the raw result.</li>
+        <li>OptiStruct was utilised to solve the topology optimization problem using density-based algorithm, weighted compliance as objective function (multiple load scenarios) and volume fraction as constraint. While HyperView was necessary to extract a smooth topology from the raw result.</li>
       </ul>
 
       <figure class="visual-comparison">
@@ -294,7 +294,8 @@
       </figure>
 
       <ul>
-        <li></li>
+        <li>In Abaqus each TO component was analysed separately to find: Von Mises stress in the most critical region (max. 30 MPa), maximum deflection (max. around 1 mm), buckling load (higher than standard load * FoS) and lowest eigenfrequency (as high as possible, to avoid large vibrations excited by typing on keyboard).</li>
+        <li>Considering the most critical part of the assembly, the extension arm, an estimate of fatigue life was computed.</li>
       </ul>
       
     </div>
