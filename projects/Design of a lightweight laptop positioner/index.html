@@ -297,6 +297,21 @@
         <li>In Abaqus the optimized parts were analysed to verify: Von Mises stress in the most critical region (<20 MPa), maximum deflection (as low as possible), buckling load (higher than standard load * FoS) and first eigenfrequency (as high as possible, to avoid large vibrations excited by typing on keyboard).</li>
         <li>Estimated the fatigue life of the most stressed component using the Sines criterion and published PLA S-N fatigue data.</li>
       </ul>
+
+      <div class="section">
+        <h2>Some of the model's limitations</h2>
+        <ul>
+          <li>
+            <strong>Viscoelasticity & Creep:</strong> Because PLA operates near its glass transition temperature at room temperature, sustained static loading causes long-term creep (sagging).
+          </li>
+          <li>
+            <strong>Anisotropy vs. Isotropic FEA:</strong> Linear isotropic FEA does not account for weak inter-layer (Z-axis) tensile strength inherent to FDM 3D printing. Printing orientation was aligned to keep primary principal stresses in the X-Y printing plane.
+          </li>
+          <li>
+            <strong>Fatigue:</strong> S-N fatigue calculations based on smooth test coupons overestimate fatigue life; internal print voids and surface stair-stepping introduce micro-notches that increase local stress intensity.
+          </li>
+        </ul>
+      </div>
       
     </div>
 
