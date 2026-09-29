@@ -110,7 +110,7 @@
       border-bottom: none;
     }
     .highlight {
-      color: var(--accent-green);
+      color: var(--accent);
       font-weight: bold;
     }
 
@@ -294,7 +294,7 @@
       </figure>
 
       <ul>
-        <li>In Abaqus the optimized parts were analysed to verify: Von Mises stress in the most critical region (<20 MPa), maximum deflection (approx. 1 mm), buckling load (higher than standard load * FoS) and first eigenfrequency (as high as possible, to avoid large vibrations excited by typing on keyboard).</li>
+        <li>In Abaqus the optimized parts were analysed to verify: Von Mises stress in the most critical region (<20 MPa), maximum deflection (as low as possible), buckling load (higher than standard load * FoS) and first eigenfrequency (as high as possible, to avoid large vibrations excited by typing on keyboard).</li>
         <li>Estimated the fatigue life of the most stressed component using the Sines criterion and published PLA S-N fatigue data.</li>
       </ul>
       
@@ -325,7 +325,16 @@
       </figure>
       
       <ul>
-        <li></li>
+        <li><strong>Mass of support links:</strong> 28.9 x 4 = 115.6 g (achieved a 70% mass reduction via topology optimization).</li>
+        <li><strong>Mass of extension arms:</strong> 52.6 x 2 = 105.2 g (achieved a 80% mass reduction via topology optimization).</li>
+        <li><strong>Mass of joints:</strong> 2.3 x 6 = 13.8 g.</li>
+        <li><strong>Mass of screws:</strong> 5.5 x 2 = 11.0 g.</li>
+        <li><strong>Final mass of 3D printed structural parts:</strong> 245.6 g (11.7% w.r.t. laptop mass).</li>
+        <li><strong>Material cost:</strong> 4.9 euros of PLA+ filament.</li>
+        <li><strong>Support link FEA (FoS=2):</strong> peak Von Mises stress of 16 MPa; buckling load 960 N (much larger than actual compressive force); first eigenfrequency at 180.6 Hz (eigenmode: transverse bending).</li>
+        <li><strong>Extension arm FEA (FoS=2):</strong> peak Von Mises stress of 18 MPa.</li>
+        <li><strong>Fatigue verification:</strong> exceeds 20 years lifespan, even when considering everyday accidental lateral impact (78 N) and 5 re-positionings of the laptop per day.</li>
+        <li><strong>Ergonomic impact:</strong> in the raised configuration, the screen is about 25 cm closer to the user and elevated by 6 cm, eliminating forward neck flexion and improving visibility.</li>
       </ul>
       
     </div>
