@@ -351,9 +351,45 @@
             <strong>Figure 3:</strong> Displacement (magnitude) field comparison between Abaqus/Standard (left) and the Custom C++ code (right).
           </figcaption>
         </figure>
-        
+      </div>
+
+      <p><strong>A trivial dynamic-implicit linear analysis benchmark was conducted in Abaqus/Standard (commercial code) and custom C++ solver.</strong></p>
+      <p><strong>Details of the model:</strong></p>
+      <ul>
+        <li><strong>Geometry:</strong> plane stress 2 mm plate with size 100x10 mm.</li>
+        <li><strong>Material Properties:</strong> isotropic linear elastic (E = 200 GPa, nu = 0.3), density 7.8e-9 t/mm^3.</li>
+        <li><strong>Solver Options:</strong> implicit dynamic, no geometric non-linearity, double precision, direct linear solver.</li>
+        <li><strong>Solver Outputs:</strong> nodal displacements and stress tensor withing the solid domain.</li>
+        <li><strong>Mesh:</strong> structured quad mesh of linear (4-node) quadrilateral full integration (4 integration points) plane stress elements: 243828 elements and 491096 d.o.f..</li>
+        <li><strong>BC and load:</strong> fixed the nodal displacements at the left short edge, applied a vertical force at the top-right corner, from 0 to -20 N linearly with time.</li>
+      </ul>
+
+      <p><strong>Below are summarised the benchmark results:</strong></p>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Abaqus/Standard</th>
+              <th>Custom C++ code</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Runtime solver checking</strong></td>
+              <td>High (user friendly)</td>
+              <td>Absent</td>
+            </tr>
+            <tr>
+              <td><strong>Solving time</strong></td>
+              <td>2111 s or about 35 min and 10 s (Baseline)</td>
+              <td class="highlight">59.4 s (35.5x faster)</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
+    <p>Max discrepancy: about 0.09%, without considering the larger discrepancy (2% at most) for the first few solved time instants, probably due to the different way Abaqus initializes the problem.</p>
 
     <div class="btn-group">
         <a href="https://github.com/NF55-55/structural-FE-codes" class="btn" target="_blank">View GitHub Repository</a>
