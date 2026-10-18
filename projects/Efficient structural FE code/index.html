@@ -358,8 +358,8 @@
       <ul>
         <li><strong>Geometry:</strong> plane stress 2 mm plate with size 100x10 mm.</li>
         <li><strong>Material Properties:</strong> isotropic linear elastic (E = 200 GPa, nu = 0.3), density 7.8e-9 t/mm^3.</li>
-        <li><strong>Solver Options:</strong> implicit dynamic, no geometric non-linearity, double precision, direct linear solver.</li>
-        <li><strong>Solver Outputs:</strong> nodal displacements and stress tensor withing the solid domain.</li>
+        <li><strong>Solver Options:</strong> implicit dynamic (t_tot = 1 s, time-step size = 0.01 s), no geometric non-linearity, double precision, direct linear solver.</li>
+        <li><strong>Solver Outputs:</strong> nodal displacements and stress tensor withing the solid domain (every 0.02 s).</li>
         <li><strong>Mesh:</strong> structured quad mesh of linear (4-node) quadrilateral full integration (4 integration points) plane stress elements: 243828 elements and 491096 d.o.f..</li>
         <li><strong>BC and load:</strong> fixed the nodal displacements at the left short edge, applied a vertical force at the top-right corner, from 0 to -20 N linearly with time.</li>
       </ul>
