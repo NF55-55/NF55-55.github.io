@@ -390,7 +390,14 @@
       </div>
     </div>
     <p>Max discrepancy: about 0.09%, without considering the larger discrepancy (2% at most) for the first few solved time instants, probably due to the different way Abaqus initializes the problem.</p>
-
+    <p>Implemented also the possibility to start the implicit-dynamic study from the static solution. With the geometry described above first a -20 N were applied in the static simulation, then from the deformed part it was studied the dynamic response, see below:</p>
+    <figure class="visual-comparison">
+          <img src="./images/dynAfterStatic.png" alt="Dynamic response after static one" class="full-width-img">
+          <figcaption>
+            <strong>Figure 4:</strong> displacement magnitude as function of time obtained from Abaqus (blue curve) and custom solver (orange curve).
+          </figcaption>
+    </figure>
+      
     <div class="btn-group">
         <a href="https://github.com/NF55-55/structural-FE-codes" class="btn" target="_blank">View GitHub Repository</a>
     </div>
